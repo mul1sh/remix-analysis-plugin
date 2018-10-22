@@ -1,0 +1,35 @@
+{
+  "name": "remix-analysis-plugin",
+  "version": "1.0.0",
+  "description": "remix-plugin-8000 integrates remix with analysis tools such as Slither and  Mythril. The sooner a solidity developer learns of an issue, the sooner they can understand it and make a correct fix. This plugin reduced the friction in running separate tools by adding a button to run them from within the remix-ide website.",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.4",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mul1sh/remix-plugin-8000.git"
+  },
+  "keywords": [
+    "remix",
+    "plugin",
+    "manticore",
+    "slither",
+    "mythril"
+  ],
+  "author": "Mulili Nzuki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mul1sh/remix-plugin-8000/issues"
+  },
+  "homepage": "https://github.com/mul1sh/remix-plugin-8000#readme"
+}
