@@ -1,31 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var debug = require('debug')('remix-express:server');
-var http = require('http');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const debug = require('debug')('remix-express:server');
+const http = require('http');
+const serveStatic = require("serve-static")
 
 
 // the routes
-var mythrilRouter = require('./routes/mythril');
-var slitherRouter = require('./routes/slither');
-var manticoreRouter = require('./routes/manticore');
+const analysisRouter = require('./routes/analysis');
 
-var app = express();
 
-app.set('views', path.join(__dirname, 'src'));
-app.set('view engine', 'ejs');
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(serveStatic(path.join(__dirname, 'src')));
 
-app.use('/mythril', mythrilRouter);
-app.use('/slither', slitherRouter);
-app.use('/manticore', manticoreRouter);
+app.use('/analysis', analysisRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,14 +44,14 @@ app.use(function(err, req, res, next) {
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -70,7 +66,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -94,7 +90,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  const bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -118,8 +114,8 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  const addr = server.address();
+  const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
