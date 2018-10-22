@@ -14,6 +14,10 @@ const analysisRouter = require('./routes/analysis');
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'src'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
