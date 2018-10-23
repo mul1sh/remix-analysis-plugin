@@ -24,8 +24,8 @@ window.onload = function() {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
     extension.call('compiler', 'getCompilationResult', [],
-    function (error, result ) {
-      console.log(error, result);
+    function (result ) {
+      console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
 
       // fetch results
@@ -47,8 +47,8 @@ window.onload = function() {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
     extension.call('compiler', 'getCompilationResult', [],
-    function (error, result ) {
-      console.log(error, result);
+    function ( result ) {
+      console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
 
       // fetch results
@@ -70,8 +70,8 @@ window.onload = function() {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
     extension.call('compiler', 'getCompilationResult', [],
-    function (error, result ) {
-      console.log(error, result);
+    function ( result ) {
+      console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
 
       // fetch results
