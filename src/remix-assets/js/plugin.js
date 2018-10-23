@@ -23,7 +23,7 @@ window.onload = function() {
   document.querySelector('input#manticore').addEventListener('click', function () {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
-    extension.call('compiler', 'getCompilationResult', [],
+    extension.call('compiler', 'getCompilationResult', 
     function (result ) {
       console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
@@ -46,7 +46,7 @@ window.onload = function() {
   document.querySelector('input#mythril').addEventListener('click', function () {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
-    extension.call('compiler', 'getCompilationResult', [],
+    extension.call('compiler', 'getCompilationResult', 
     function ( result ) {
       console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
@@ -69,7 +69,7 @@ window.onload = function() {
   document.querySelector('input#slither').addEventListener('click', function () {
     var div = document.querySelector('div#results');
     div.innerHTML = "Please wait...";
-    extension.call('compiler', 'getCompilationResult', [],
+    extension.call('compiler', 'getCompilationResult', 
     function ( result ) {
       console.log(result);
       document.querySelector('div#results').innerHTML = "Sending compile info to server. Please wait...";
