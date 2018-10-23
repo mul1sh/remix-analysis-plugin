@@ -14,7 +14,7 @@ function do_post(url, data, cb) {
 }
 
 window.onload = function() {
-  console.log("LOADED");
+  console.log("LOADED ANALYSIS PLUGIN");
   extension.listen('compiler', 'compilationFinished', function (result) {
     console.log("GOT A COMPILE: ");
     console.log(result);

@@ -12,7 +12,7 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
 ```
 {
     "title": "remix-analysis-plugin",
-    "url": "18.218.104.113/remix-analysis"
+    "url": "http://18.218.104.113/remix-analysis"
 }
 ```
 * Click the Load button and you should see remix-plugin-8000 button appear
