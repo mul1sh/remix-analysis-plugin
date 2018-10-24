@@ -67,7 +67,7 @@ router.post('/:analysisType', async function(req, res, next) {
 			}
 			finally {
 					//delete the file once we are done with it
-                //fs.unlinkSync(filePath);
+                fs.unlinkSync(filePath);
 			}
 		}
 
