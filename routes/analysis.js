@@ -27,7 +27,7 @@ router.post('/:analysisType', async function(req, res, next) {
 
 				// then run the mythril or manticore analysis
 				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}`: `manticore --detect-all ${filePath}`;
-				
+				console.log(cmd);
 				const { stdout, stderr } = await exec(cmd);
 
 				console.log(stdout);
