@@ -28,6 +28,9 @@ router.post('/:analysisType', async function(req, res, next) {
 				const cmd = 'myth -x ' + filePath;
 				const { stdout, stderr } = await exec(cmd);
 
+				console.log(stdout);
+				console.log(stderr);
+
 				if(stdout) {
 					res.status(200).send(stdout);
 				}
