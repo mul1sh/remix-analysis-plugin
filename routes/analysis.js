@@ -32,7 +32,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				console.log(stdout);
 				console.log(stderr);
 	
-
+               res.send("success");
 				if(stdout) {
 					res.send(stdout);
 				}
