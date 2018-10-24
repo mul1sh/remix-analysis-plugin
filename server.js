@@ -18,6 +18,7 @@ const analysisRouter = require('./routes/analysis');
 
 const app = express();
 
+
 app.set('views', path.join(__dirname, 'src'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -30,14 +31,7 @@ app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'src')));
 
 
-app.use(function(req, res, next){
-    res.setTimeout(18000000, function(){
-        console.log('Request has timed out.');
-            res.send(408);
-        });
 
-    next();
-});
 
 app.use('/analysis', analysisRouter);
 
@@ -73,6 +67,7 @@ const server = http.createServer(app);
  */
 
 server.listen(port);
+server.setTimeout(18000000);
 server.on('error', onError);
 server.on('listening', onListening);
 
