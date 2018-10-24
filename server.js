@@ -31,7 +31,7 @@ app.use(serveStatic(path.join(__dirname, 'src')));
 
 
 app.use(function(req, res, next){
-    res.setTimeout(1800000, function(){
+    res.setTimeout(18000000, function(){
         console.log('Request has timed out.');
             res.send(408);
         });
