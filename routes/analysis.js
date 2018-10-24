@@ -27,7 +27,7 @@ router.post('/:analysisType', async function(req, res, next) {
 
 				// then run the mythril or manticore analysis
 				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}`: `manticore --detect-all ${filePath}`;
-				const { stdout, stderr } = await exec(cmd);
+				let { stdout, stderr } = await exec(cmd);
 				//delete the file once we are done with it
                 fs.unlinkSync(filePath);
             
