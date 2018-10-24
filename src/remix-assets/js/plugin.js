@@ -6,7 +6,7 @@ async function do_post(url, data, cb) {
   try{
     const response =  await (await fetch(url,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)})).json();
 
-    cb(response.output);
+    cb(response);
 
   }
   catch (error) {

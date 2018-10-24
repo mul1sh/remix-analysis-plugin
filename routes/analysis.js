@@ -18,7 +18,7 @@ router.post('/:analysisType', async function(req, res, next) {
 		let fileName = source.target;
 		if(objectIsValid(sources) && objectIsValid(fileName)){
 			const contract = sources[fileName].content;
-			fileName = randomstring.generate() + '-' +fileName.split('/').pop();
+			fileName = fileName.split('/').pop();
 			const filePath = path.join(__dirname,'..','data/'+fileName);
 		
 			try{
@@ -28,8 +28,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				// then run the mythril or manticore analysis
 				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}`: `manticore --detect-all ${filePath}`;
 				let { stdout, stderr } = await exec(cmd);
-				//delete the file once we are done with it
-                fs.unlinkSync(filePath);
+			
             
 				if(objectIsValid(stdout)) {
 					if(typeof stdout === 'string'){
@@ -37,7 +36,18 @@ router.post('/:analysisType', async function(req, res, next) {
 					}
 				}
 
+				if(objectIsValid(stderr)) {
+					if(typeof stderr === 'string'){
+						stderr = { output : stderr };
+					}
+
+					if(typeof stderr === 'object'){
+						stderr = { output : stderr.stderr };
+					}
+				}
+
 				console.log(typeof stdout);
+				console.log(typeof stderr);
 				console.log(stdout);
 				console.log(stderr);
 	
@@ -52,7 +62,12 @@ router.post('/:analysisType', async function(req, res, next) {
 			}
 			catch(error) {
 				console.log(error);
+				error = { output : JSON.stringify(error) };
 				res.status(500).send(error);
+			}
+			finally {
+					//delete the file once we are done with it
+                fs.unlinkSync(filePath);
 			}
 		}
 
