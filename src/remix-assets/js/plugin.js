@@ -16,6 +16,10 @@ async function do_post(url, data, cb) {
 }
 
 function handleCompileSuccess(result,analysisType) {
+  if(result[0] === null){
+     document.querySelector('div#results').innerHTML = `No compile results found for this contract, please make sure <br> the contract compiles correctly.`;
+     return;
+  }
   document.querySelector('div#results').innerHTML = `Doing ${analysisType} analysis. Please wait...`;
   // fetch results
   do_post(`/analysis/${analysisType}`, result, function(res) {
