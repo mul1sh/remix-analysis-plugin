@@ -1,0 +1,45 @@
+body {
+	width: 100%;
+	font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+.container {
+	margin: 0;
+}
+
+#header-label {
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+#analysis-btns {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+input[type="submit"] {
+	margin: 1px;
+    background-color: hsla(229, 75%, 87%, .5);
+    border: .3px solid hsla(229, 75%, 87%, .5);
+    color: hsl(0, 0%, 0%);
+    border-radius: 3px;
+    cursor: pointer;
+    min-height: 25px;
+    max-height: 25px;
+    width: 70px;
+    min-width: 70px;
+    font-size: 12px;
+    overflow: hidden;
+    word-break: normal;
+    margin-right: 1%;
+}
+
+#results {
+	margin-left: 20px;
+}

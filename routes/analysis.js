@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { runCmd,} = require('../helpers/analysis');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// handle the analysis
+router.post('/:analysisType', function(req, res, next) {
+
+	console.log(req.body);
+	console.log(req.params);
+	
+  
 });
 
 module.exports = router;

@@ -11,7 +11,7 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
 * Go to Settings, Under plugins fill out this info:
 ```
 {
-    "title": "remix-analysis-plugin",
+    "title": "Remix Analysis Plugin",
     "url": "http://18.218.104.113/remix-analysis"
 }
 ```

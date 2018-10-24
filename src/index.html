@@ -32,20 +32,26 @@
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<script type="text/javascript" src="remix-assets/js/remix-api.js"></script>
-    	<script type="text/javascript" src="remix-assets/js/plugin.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="remix-assets/css/style.css" rel="stylesheet">
 	</head>
 	<body>
-		<pre><div>Remix Analysis Plugin</div></pre>
-		<input type="text" id="contract_name" value="Hit a button for analysis" width='15'></input> 
-		<input type="submit" id="slither" value="slither"/>&nbsp;
-		<input type="submit" id="mythril" value="mythril"/>&nbsp;
-		<input type="submit" id="manticore" value="manticore"/>&nbsp;
-	
-		<br>
-		<pre>
-		<div id='results'></div>
-		</pre>
+		<div class="container">
+			<label id="header-label" for="analysis-btns">Click on any button, for analysis</label>
+			<br>
+			<br>
+	   		<div id="analysis-btns">
+	   			<input type="submit" id="slither" value="slither"/>&nbsp;
+				<input type="submit" id="mythril" value="mythril"/>&nbsp;
+				<input type="submit" id="manticore" value="manticore"/>&nbsp;
+	   		</div>
+			<br>
+			<pre>
+			<div id='results'></div>
+			</pre>
+		</div>
 	</body>
+	<script type="text/javascript" src="remix-assets/js/remix-api.js"></script>
+    <script type="text/javascript" src="remix-assets/js/plugin.js"></script>
 	
 </html>
