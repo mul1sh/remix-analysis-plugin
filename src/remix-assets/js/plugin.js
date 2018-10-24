@@ -4,8 +4,10 @@ var compileMsg = "Compiling smart contract, please wait...";
 
 async function do_post(url, data, cb) {
   try{
-    const response =  await fetch(url,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)});
-    console.log(response.Json());
+    const response =  await (await fetch(url,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)})).json();
+
+    console.log(response);
+
   }
   catch (error) {
     console.log(error);
