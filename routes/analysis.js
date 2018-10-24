@@ -12,7 +12,7 @@ router.post('/:analysisType', async function(req, res, next) {
 	const { data, source } = req.body[0];
 	
 
-	if(analysisType === 'mythril') {
+	if(analysisType === 'mythril' || analysisType === 'manticore') {
 		const sources = source.sources;
 		let fileName = source.target;
 		if(objectIsValid(sources) && objectIsValid(fileName)){
@@ -24,14 +24,14 @@ router.post('/:analysisType', async function(req, res, next) {
 				// save contract locally
 				fs.writeFileSync(filePath,contract);
 
-				// then run the mythril analysis
-				const cmd = 'myth -x ' + filePath;
+				// then run the mythril or manticore analysis
+				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}`: `manticore --detect-all ${filePath}`;
 				console.log(cmd);
 				const { stdout, stderr } = await exec(cmd);
 
 				console.log(stdout);
 				console.log(stderr);
-				console.log(filePath);
+	
 
 				if(stdout) {
 					res.status(200).send(stdout);
@@ -53,9 +53,6 @@ router.post('/:analysisType', async function(req, res, next) {
 
 	}
 
-	if(analysisType === 'manticore') {
-
-	}
 });
 
 function objectIsValid(obj) {
