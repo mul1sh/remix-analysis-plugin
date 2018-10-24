@@ -36,8 +36,10 @@ router.post('/:analysisType', async function(req, res, next) {
 						stdout = { output : stdout };
 					}
 				}
-				
-				
+
+				console.log(typeof stdout);
+				console.log(stdout);
+				console.log(stderr);
 	
 				if(stdout) {
 					res.status(200).send(stdout);
