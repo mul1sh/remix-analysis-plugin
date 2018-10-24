@@ -32,7 +32,7 @@ router.post('/:analysisType', async function(req, res, next) {
                 fs.unlinkSync(filePath);
             
 				if(objectIsValid(stdout)) {
-					if(typeof stdout === String){
+					if(typeof stdout === 'string'){
 						stdout = { output : stdout };
 					}
 				}
