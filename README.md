@@ -11,12 +11,12 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
 * Go to Settings, Under plugins fill out this info:
 ```
 {
-    "title": "Remix Analysis Plugin",
-    "url": "http://18.218.104.113/remix-analysis"
+    "title": "Analysis Plugin",
+    "url": "http://18.218.104.113"
 }
 ```
 * Click the Load button and you should see remix-plugin-8000 button appear
-* Click the remix-plugin-8000 button to load the plugin into a small window
+* Click the "Analysis Plugin" button to load the plugin into a small window
 * Now click on the button you would like to perform the analysis
 
 ## Setup
