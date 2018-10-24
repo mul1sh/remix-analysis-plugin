@@ -9,6 +9,7 @@ const serveStatic = require("serve-static");
 const bodyParser = require('body-parser');
 const multer = require('multer'); // v1.0.5
 const upload = multer(); // for parsing multipart/form-data
+const timeout = require('connect-timeout');
 
 
 
@@ -28,6 +29,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(serveStatic(path.join(__dirname, 'src')));
+
+
+app.use(function(req, res, next){
+    res.setTimeout(1800000, function(){
+        console.log('Request has timed out.');
+            res.send(408);
+        });
+
+    next();
+});
 
 app.use('/analysis', analysisRouter);
 
