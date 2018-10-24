@@ -34,11 +34,11 @@ router.post('/:analysisType', async function(req, res, next) {
 	
 
 				if(stdout) {
-					res.status(200).send(stdout);
+					res.send(stdout);
 				}
 
 				if(stderr) {
-					res.status(500).send(stderr);
+					res.send(stderr);
 				}
               
 			}
