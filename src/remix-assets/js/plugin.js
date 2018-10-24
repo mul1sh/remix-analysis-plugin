@@ -5,7 +5,7 @@ var compileMsg = "Compiling smart contract, please wait...";
 async function do_post(url, data, cb) {
   try{
     const response =  await fetch(url,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)});
-    console.log(response);
+    console.log(response.Json());
   }
   catch (error) {
     console.log(error);
@@ -14,7 +14,6 @@ async function do_post(url, data, cb) {
 }
 
 function handleCompileSuccess(result,analysisType) {
-  console.log(result);
   document.querySelector('div#results').innerHTML = `Doing ${analysisType} analysis. Please wait...`;
   // fetch results
   do_post(`/analysis/${analysisType}`, result, function(res) {
@@ -32,7 +31,6 @@ function handleCompileSuccess(result,analysisType) {
 }
 
 function handleCompileFailure(error,analysisType) {
-  console.log(error);
   document.querySelector('div#results').innerHTML = error;
 }
 

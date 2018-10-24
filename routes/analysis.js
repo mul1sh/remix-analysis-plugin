@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+const randomstring = require("randomstring");
 
 // handle the analysis
 router.post('/:analysisType', async function(req, res, next) {
@@ -17,7 +18,7 @@ router.post('/:analysisType', async function(req, res, next) {
 		let fileName = source.target;
 		if(objectIsValid(sources) && objectIsValid(fileName)){
 			const contract = sources[fileName].content;
-			fileName = fileName.split('/').pop();
+			fileName = randomstring.generate() + '-' +fileName.split('/').pop();
 			const filePath = path.join(__dirname,'..','data/'+fileName);
 		
 			try{
