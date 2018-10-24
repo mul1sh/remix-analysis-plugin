@@ -26,10 +26,12 @@ router.post('/:analysisType', async function(req, res, next) {
 
 				// then run the mythril analysis
 				const cmd = 'myth -x ' + filePath;
+				console.log(cmd);
 				const { stdout, stderr } = await exec(cmd);
 
 				console.log(stdout);
 				console.log(stderr);
+				console.log(filePath);
 
 				if(stdout) {
 					res.status(200).send(stdout);
