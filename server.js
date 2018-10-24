@@ -9,7 +9,6 @@ const serveStatic = require("serve-static");
 const bodyParser = require('body-parser');
 const multer = require('multer'); // v1.0.5
 const upload = multer(); // for parsing multipart/form-data
-const timeout = require('connect-timeout');
 
 
 
