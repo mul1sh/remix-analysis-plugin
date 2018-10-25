@@ -48,8 +48,6 @@ input[type="submit"] {
 }
 
 .documentation a {
-     width: 70px;
-    min-width: 70px;
     margin: 1px;
-    margin-right: 100px;
+    margin-right: 50px;
 }

@@ -27,4 +27,4 @@ If you would like to run the analysis software on your own computer instead of t
 
 
 ## Disclaimer
-In using this plugin, you acknowledge that the compilation results from your contract will be sent over basic HTTP to a 3rd party server for analysis. And that the developers of the this plugin IS NOT LIABLE to any LOSS, INJURY, HACKING , DATA LOSS, FINANCIAL LOSS, TIME LOSS and DATA CORRUPTION that may result from your use of our plugin. You also acknowledge that this plugin is provided on an as-is basis and all functionality works as documented above.
+By using this plugin, you acknowledge that the compilation results from your contract will be sent over basic HTTP to a 3rd party server for analysis. And that the developers of the this plugin ARE NOT LIABLE to any LOSS, INJURY, HACKING , DATA LOSS, FINANCIAL LOSS, TIME LOSS and DATA CORRUPTION that may occur from your use of our plugin. You also acknowledge that this plugin is provided on an as-is basis and all functionality works as documented above.
