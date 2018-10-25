@@ -44,14 +44,12 @@ router.post('/:analysisType', async function(req, res, next) {
 					}
 
 					if(typeof stderr === 'object'){
+						console.log(stderr.stderr)
 						stderr = { output : stderr.stderr };
 					}
 				}
 
-				console.log(typeof stdout);
-				console.log(typeof stderr);
-				console.log(stdout);
-				console.log(stderr);
+				
 	
 				if(stdout) {
 					res.status(200).send(stdout);
