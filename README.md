@@ -1,6 +1,6 @@
 
 # remix-analysis-plugin
-remix-analysis-plugin integrates remix with analysis tools such as Slither, Manticore and  Mythril. The sooner a solidity developer learns of an issue, the sooner they can understand it and make a correct fix. This plugin reduced the friction in running separate tools by adding a button to run them from within the remix-ide website.
+remix-analysis-plugin integrates remix with analysis tools such as Slither and  Mythril. The sooner a solidity developer learns of an issue, the sooner they can understand it and make a correct fix. This plugin reduced the friction in running separate tools by adding a button to run them from within the remix-ide website.
 
 The remix plugin API is based from https://github.com/yann300/remix-plugin
 
