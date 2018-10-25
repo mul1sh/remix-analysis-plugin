@@ -20,8 +20,9 @@ router.post('/:analysisType', async function(req, res, next) {
 		const contract = sources[originalFileName].content;
 		const fileName = originalFileName.split('/').pop();
 		const fileDir = path.dirname(fileName);
-		shell.mkdir('-p', path.join(__dirname,fileDir));
-		const filePath = fileDir+fileName;
+		console.log(fileDir);
+		shell.mkdir('-p', fileDir);
+		const filePath = fileDir + '/'+fileName;
 
 		if(analysisType === 'mythril' || analysisType === 'slither') {
 		
