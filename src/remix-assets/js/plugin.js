@@ -23,13 +23,24 @@ function handleCompileSuccess(result,analysisType) {
   document.querySelector('div#results').innerHTML = `Doing ${analysisType} analysis. Please wait...`;
   // fetch results
   do_post(`/analysis/${analysisType}`, result, function(res) {
-      console.log(res);
+      
       if(res['status'] == 0) {
         console.log(`error from ${analysisType}`);
         document.querySelector('div#results').innerHTML = `Error running ${analysisType}: ${res['output']}`;
       }
       else {
-        document.querySelector('div#results').innerHTML = res['output'];
+        console.log(typeof JSON.parse(res['output']));
+        if(typeof JSON.parse(res['output']) === 'object') {
+          var output = JSON.parse(res['output']);
+
+          if(output.stderr !== '') {
+            document.querySelector('div#results').innerHTML = output.stderr;
+          }
+        }
+        else{
+          document.querySelector('div#results').innerHTML = res['output'];
+        }
+        
       }
   });
    
