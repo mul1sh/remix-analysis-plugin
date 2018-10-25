@@ -64,7 +64,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				console.log(error);
 				if(typeof error === 'object' && objectIsValid(error.stderr)){
 						console.log(error.stderr)
-						error = { output : stderr.stderr };
+						error = { output : error.stderr };
 				}
 				else{
 					error = { output : JSON.stringify(error) };
