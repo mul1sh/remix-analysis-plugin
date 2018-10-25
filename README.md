@@ -22,5 +22,5 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
 ## Setup
 If you would like to run the analysis software on your own computer instead of the public one, follow the directions below
 * Install the solidity compiler in your platform as detailed [here](https://solidity.readthedocs.io/en/latest/installing-solidity.html#)
-* Then install python 3.6 and above and also install the [slither](https://github.com/trailofbits/slither#how-to-install), [mythril](https://github.com/trailofbits/slither#how-to-install) and [manticore](https://github.com/trailofbits/manticore#installation) python packages in your system.
+* Then install python 3.6 and above and also install the [slither](https://github.com/trailofbits/slither#how-to-install) and [mythril](https://github.com/trailofbits/slither#how-to-install) python packages in your system.
 *  Finally installed the required node dependencies via `npm i` and then replace the url of the plugin with the localhost url i.e. `http:localhost:3000`

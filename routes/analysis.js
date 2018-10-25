@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const router = express.Router();
 const { isEmpty, isNull, isUndefined } = require('underscore');
@@ -12,7 +13,7 @@ router.post('/:analysisType', async function(req, res, next) {
 	const { analysisType } = req.params;
 	const { data, source } = req.body[0];
 	
-	const sources = source.sources;
+	let sources = source.sources;
 	let fileName = source.target;
 	if(objectIsValid(sources) && objectIsValid(fileName)){
 
@@ -72,11 +73,14 @@ router.post('/:analysisType', async function(req, res, next) {
 			}
 		}
 
-		if(analysisType === 'manticore') {
-
-		}
 
 		if(analysisType === 'slither') {
+
+			sources = data.sources;
+			fileName = source.target;
+			const ast = sources[fileName].legacyAST;
+
+			console.log(ast);
 
 		}
 

@@ -47,19 +47,6 @@ window.onload = function() {
     console.log(result);
   });
 
-  document.querySelector('input#manticore').addEventListener('click', function () {
-    var div = document.querySelector('div#results');
-    div.innerHTML = compileMsg;
-    extension.call('compiler', 'getCompilationResult', [],function (error, result ) {
-        if(result) {
-          handleCompileSuccess(result,'manticore');
-        }
-        else{
-          handleCompileFailure(error,'manticore');
-        }
-    });
-      
-  });
 
   document.querySelector('input#mythril').addEventListener('click', function () {
     var div = document.querySelector('div#results');
@@ -78,7 +65,7 @@ window.onload = function() {
     var div = document.querySelector('div#results');
     div.innerHTML = compileMsg;
     extension.call('compiler', 'getCompilationResult', [], function (error, result ) {
-      if(result) {
+        if(result) {
           handleCompileSuccess(result,'slither');
         }
         else{
