@@ -14,7 +14,7 @@ body {
 	margin-left: 20px;
 }
 
-#documentation,
+.documentation,
 #analysis-btns {
 	display: flex;
     flex-direction: row;
@@ -47,7 +47,7 @@ input[type="submit"] {
     min-height: 520px;
 }
 
-#documentation a {
+.documentation a {
      width: 70px;
     min-width: 70px;
     margin: 1px;
