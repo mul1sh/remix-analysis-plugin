@@ -65,6 +65,8 @@ router.post('/:analysisType', async function(req, res, next) {
 				if(typeof error === 'object' && objectIsValid(error.stderr)){
 						console.log(error.stderr)
 						error.stderr = error.stderr.replace(filePath,originalFileName);
+						error.stderr = error.stderr.replace(filePath+':',originalFileName+':\n');
+					    error.stderr = error.stderr.replace(':'+filePath,':'+originalFileName);
 						error = { output : error.stderr };
 				}
 				else{
