@@ -12,7 +12,7 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
 ```
 {
     "title": "Analysis Plugin",
-    "url": "http://jittery-space.surge.sh/"
+    "url": "http://jittery-space.surge.sh"
 }
 ```
 * Click the Load button and you should see `Analysis Plugin` button appear
