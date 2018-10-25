@@ -3,8 +3,9 @@ var extension = new window.RemixExtension();
 var compileMsg = "Compiling smart contract, please wait...";
 
 async function do_post(url, data, cb) {
+  var baseUrl = "http://52.14.164.58/" + url
   try{
-    const response =  await (await fetch(url,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)})).json();
+    const response =  await (await fetch(baseUrl,{ method: 'POST', headers: { "Content-Type": "application/json; charset=utf-8"},body: JSON.stringify(data)})).json();
 
     cb(response);
 

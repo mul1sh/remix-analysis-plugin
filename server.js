@@ -9,6 +9,7 @@ const serveStatic = require("serve-static");
 const bodyParser = require('body-parser');
 const multer = require('multer'); // v1.0.5
 const upload = multer(); // for parsing multipart/form-data
+const cors = require('cors')
 
 
 
@@ -17,6 +18,7 @@ const analysisRouter = require('./routes/analysis');
 
 
 const app = express();
+app.use(cors())
 
 
 app.set('views', path.join(__dirname, 'src'));
