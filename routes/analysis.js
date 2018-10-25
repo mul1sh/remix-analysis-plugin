@@ -30,7 +30,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				fs.writeFileSync(filePath, contract);
 
 				// then run the mythril or manticore analysis
-				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}` :  `slither ${filePath}`;;
+				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}` :  `slither --disable-solc-warnings ${filePath}`;;
 				let { stdout, stderr } = await exec(cmd);
 			
             
