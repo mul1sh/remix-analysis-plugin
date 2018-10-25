@@ -21,14 +21,14 @@ router.post('/:analysisType', async function(req, res, next) {
 		fileName = fileName.split('/').pop();
 		const filePath = path.join(__dirname,'..','data/'+fileName);
 
-		if(analysisType === 'mythril') {
+		if(analysisType === 'mythril' || analysisType === 'slither') {
 		
 			try{
 				// save contract locally
 				fs.writeFileSync(filePath,contract);
 
 				// then run the mythril or manticore analysis
-				const cmd = `myth -x ${filePath}`;
+				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}` :  `slither ${filePath}`;;
 				let { stdout, stderr } = await exec(cmd);
 			
             
@@ -74,15 +74,7 @@ router.post('/:analysisType', async function(req, res, next) {
 		}
 
 
-		if(analysisType === 'slither') {
-
-			sources = data.sources;
-			fileName = source.target;
-			const ast = sources[fileName].legacyAST;
-
-			console.log(ast);
-
-		}
+		
 
 
 	}  
