@@ -43,7 +43,7 @@ input[type="submit"] {
 #results {
 	margin-left: 5px;
     background-color: white;
-    width :485px;
+    min-width :485px;
     min-height: 520px;
 }
 
