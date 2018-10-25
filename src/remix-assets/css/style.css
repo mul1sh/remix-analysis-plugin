@@ -41,9 +41,10 @@ input[type="submit"] {
 }
 
 #results {
-	margin-left: 20px;
+	margin-left: 5px;
     background-color: white;
-    width :470px;
+    width :485px;
+    min-height: 520px;
 }
 
 #documentation a {
