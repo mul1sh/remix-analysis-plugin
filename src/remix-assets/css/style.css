@@ -14,6 +14,7 @@ body {
 	margin-left: 20px;
 }
 
+#documentation,
 #analysis-btns {
 	display: flex;
     flex-direction: row;
@@ -41,4 +42,13 @@ input[type="submit"] {
 
 #results {
 	margin-left: 20px;
+    background-color: white;
+    width :470px;
+}
+
+#documentation a {
+     width: 70px;
+    min-width: 70px;
+    margin: 1px;
+    margin-right: 100px;
 }

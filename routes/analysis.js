@@ -20,7 +20,6 @@ router.post('/:analysisType', async function(req, res, next) {
 		const contract = sources[originalFileName].content;
 		const fileName = originalFileName.split('/').pop();
 		const fileDir = path.dirname(originalFileName);
-		console.log('file dir is ',fileDir);
 		shell.mkdir('-p', fileDir);
 		const filePath = fileDir + '/'+fileName;
 

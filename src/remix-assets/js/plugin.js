@@ -23,12 +23,9 @@ function handleCompileSuccess(result,analysisType) {
   document.querySelector('div#results').innerHTML = `Doing ${analysisType} analysis. Please wait...`;
   // fetch results
   do_post(`/analysis/${analysisType}`, result, function(res) {
-      
 
         document.querySelector('div#results').innerHTML = res['output'];
     
-        
-      
   });
    
 
