@@ -18,7 +18,7 @@ const analysisRouter = require('./routes/analysis');
 
 
 const app = express();
-app.use(cors())
+app.use(cors());
 
 
 app.set('views', path.join(__dirname, 'src'));
