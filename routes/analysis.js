@@ -14,11 +14,11 @@ router.post('/:analysisType', async function(req, res, next) {
 	const { data, source } = req.body[0];
 	
 	let sources = source.sources;
-	let fileName = source.target;
-	if(objectIsValid(sources) && objectIsValid(fileName)){
+	const  originalFileName = source.target;
+	if(objectIsValid(sources) && objectIsValid(originalFileName)){
 
-		const contract = sources[fileName].content;
-		fileName = fileName.split('/').pop();
+		const contract = sources[originalFileName].content;
+		const fileName = originalFileName.split('/').pop();
 		const filePath = path.join(__dirname,'..','data/'+fileName);
 
 		if(analysisType === 'mythril' || analysisType === 'slither') {
@@ -64,6 +64,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				console.log(error);
 				if(typeof error === 'object' && objectIsValid(error.stderr)){
 						console.log(error.stderr)
+						error.stderr = error.stderr.replace(filePath,originalFileName);
 						error = { output : error.stderr };
 				}
 				else{
