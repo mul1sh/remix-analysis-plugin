@@ -24,24 +24,11 @@ function handleCompileSuccess(result,analysisType) {
   // fetch results
   do_post(`/analysis/${analysisType}`, result, function(res) {
       
-      if(res['status'] == 0) {
-        console.log(`error from ${analysisType}`);
-        document.querySelector('div#results').innerHTML = `Error running ${analysisType}: ${res['output']}`;
-      }
-      else {
-        console.log(typeof JSON.parse(res['output']));
-        if(typeof JSON.parse(res['output']) === 'object') {
-          var output = JSON.parse(res['output']);
 
-          if(output.stderr !== '') {
-            document.querySelector('div#results').innerHTML = output.stderr;
-          }
-        }
-        else{
-          document.querySelector('div#results').innerHTML = res['output'];
-        }
+        document.querySelector('div#results').innerHTML = res['output'];
+    
         
-      }
+      
   });
    
 
