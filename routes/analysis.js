@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const randomstring = require("randomstring");
+const shell = require('shelljs');
 
 // handle the analysis
 router.post('/:analysisType', async function(req, res, next) {
@@ -19,13 +19,15 @@ router.post('/:analysisType', async function(req, res, next) {
 
 		const contract = sources[originalFileName].content;
 		const fileName = originalFileName.split('/').pop();
-		const filePath = path.join(__dirname,'..','data/'+fileName);
+		const fileDir = path.dirname(fileName);
+		shell.mkdir('-p', path.join(__dirname,fileDir));
+		const filePath = fileDir+fileName;
 
 		if(analysisType === 'mythril' || analysisType === 'slither') {
 		
 			try{
 				// save contract locally
-				fs.writeFileSync(filePath,contract);
+				fs.writeFileSync(filePath, contract);
 
 				// then run the mythril or manticore analysis
 				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}` :  `slither ${filePath}`;;
@@ -64,9 +66,7 @@ router.post('/:analysisType', async function(req, res, next) {
 				console.log(error);
 				if(typeof error === 'object' && objectIsValid(error.stderr)){
 						console.log(error.stderr)
-						error.stderr = error.stderr.replace(filePath,originalFileName);
-						error.stderr = error.stderr.replace(filePath+':',originalFileName+':\n');
-					    error.stderr = error.stderr.replace(':'+filePath,':'+originalFileName);
+
 						error = { output : error.stderr };
 				}
 				else{
