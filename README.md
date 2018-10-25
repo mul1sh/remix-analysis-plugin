@@ -15,12 +15,12 @@ The remix plugin API is based from https://github.com/yann300/remix-plugin
     "url": "http://52.14.164.58"
 }
 ```
-* Click the Load button and you should see remix-plugin-8000 button appear
-* Click the "Analysis Plugin" button to load the plugin into a small window
+* Click the Load button and you should see `Analysis Plugin` button appear
+* Click the `Analysis Plugin` button to load the plugin into a small window
 * Now click on the button you would like to perform the analysis
 
 ## Setup
 If you would like to run the analysis software on your own computer instead of the public one, follow the directions below
-* Clone this repository to a server and change directory to it
-* `git clone https://github.com/trailofbits/slither`
-* `sudo pip3 install mythril`
+* Install the solidity compiler in your platform as detailed (here)[https://solidity.readthedocs.io/en/latest/installing-solidity.html#]
+* Then install python 3.6 and above and also install the (slither)[https://github.com/trailofbits/slither#how-to-install], (mythril)[https://github.com/trailofbits/slither#how-to-install] and (manticore)[https://github.com/trailofbits/manticore#installation] python packages in your system.
+*  Finally installed the required node dependencies via `npm i` and then replace the url of the plugin with the localhost url i.e. `http:localhost:3000`
