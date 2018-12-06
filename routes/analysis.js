@@ -23,14 +23,14 @@ router.post('/:analysisType', async function(req, res, next) {
 		shell.mkdir('-p', fileDir);
 		const filePath = fileDir + '/'+fileName;
 
-		if(analysisType === 'mythril' || analysisType === 'slither') {
+		if(analysisType === 'mythril') {
 		
 			try{
 				// save contract locally
 				fs.writeFileSync(filePath, contract);
 
-				// then run the mythril or manticore analysis
-				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}` :  `slither --disable-solc-warnings ${filePath}`;;
+				// then run the mythril analysis
+				const cmd = analysisType === 'mythril' ? `myth -x ${filePath}`;
 				let { stdout, stderr } = await exec(cmd);
 			
             

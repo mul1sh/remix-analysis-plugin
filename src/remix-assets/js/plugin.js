@@ -57,18 +57,6 @@ window.onload = function() {
     });
   });
 
-  document.querySelector('input#slither').addEventListener('click', function () {
-    var div = document.querySelector('div#results');
-    div.innerHTML = compileMsg;
-    extension.call('compiler', 'getCompilationResult', [], function (error, result ) {
-        if(result) {
-          handleCompileSuccess(result,'slither');
-        }
-        else{
-          handleCompileFailure(error,'slither');
-        }
 
-    });
-  });
 
 }
